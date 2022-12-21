@@ -42,7 +42,10 @@ export const buildV3ForkConfig = ():
     };
     if (FORK_BLOCK_NUMBER) {
       forkMode.blockNumber = FORK_BLOCK_NUMBER;
+      console.log("BlockNumber is", FORK_BLOCK_NUMBER);
     }
+      //return 31804758;
+
   }
   return forkMode;
 };
@@ -82,6 +85,8 @@ export const getAlchemyKey = (net: eNetwork) => {
       return process.env.POLYGON_MUMBAI_ALCHEMY_KEY || ALCHEMY_KEY;
     case ePolygonNetwork.polygon:
       return process.env.POLYGON_ALCHEMY_KEY || ALCHEMY_KEY;
+    case eArbitrumNetwork.arbitrum:
+      return process.env.ARBITRUM_ALCHEMY_KEY || ALCHEMY_KEY;    
     default:
       return ALCHEMY_KEY;
   }
@@ -102,7 +107,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [ePolygonNetwork.polygon]: `https://polygon-mainnet.g.alchemy.com/v2/${getAlchemyKey(
     ePolygonNetwork.polygon
   )}`,
-  [eArbitrumNetwork.arbitrum]: `https://arb1.arbitrum.io/rpc`,
+  //[eArbitrumNetwork.arbitrum]: `https://arb1.arbitrum.io/rpc`,
+  [eArbitrumNetwork.arbitrum]: `https://arb-mainnet.g.alchemy.com/v2/${getAlchemyKey(eArbitrumNetwork.arbitrum)}`,
   [eArbitrumNetwork.arbitrumTestnet]: `https://rinkeby.arbitrum.io/rpc`,
   [eEthereumNetwork.rinkeby]: `https://eth-rinkeby.alchemyapi.io/v2/${getAlchemyKey(
     eEthereumNetwork.rinkeby

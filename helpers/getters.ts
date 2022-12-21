@@ -80,6 +80,7 @@ export const getUserData =
       user
     );
     const hf = (await pool.getUserAccountData(user)).healthFactor;
+    console.log(hf.toString());
     return {
       user,
       healthFactor: formatHealthFactor(hf),

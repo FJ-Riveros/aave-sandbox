@@ -31,7 +31,7 @@ task(
       const borrowers = accounts.slice(3, 10);
 
       if (!disableReset) {
-        await evmResetFork();
+        // await evmResetFork();
       }
       const initialSnapshot = await evmSnapshot();
 
@@ -41,9 +41,14 @@ task(
         borrowableAssetsList.includes(a.symbol)
       );
       const borrowerCollateralAssets = assets.filter(
-        (a) => !borrowableAssetsList.includes(a.symbol)
+        (a) => {
+          if (a.symbol == "DPI") {
+            return false
+          }
+          return !borrowableAssetsList.includes(a.symbol)
+        }
       );
-
+/*
       // Set balances of ERC20 tokens
       await feedBalances(userAccounts, assets);
 
@@ -66,7 +71,6 @@ task(
 
       // Borrowers deposits 10% of their collateral
       await injectLiquidity(borrowers, borrowerCollateralAssets, pool, "1000");
-
       console.log(
         "- Borrowers deposited collateral:",
         borrowerCollateralAssets.map(({ symbol }) => symbol).join(", ")
@@ -85,6 +89,7 @@ task(
         "- Borrowers perform borrows of:",
         borrowableAssets.map(({ symbol }) => symbol).join(", ")
       );
+*/
 
       await replaceOracleSources(
         pricePercentage,

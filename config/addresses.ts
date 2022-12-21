@@ -34,6 +34,15 @@ export const Markets: { [key: string]: MarketAddresses } = {
     permissionsManager: ZERO_ADDRESS,
     uiPoolData: "0x47e300dDd1d25447482E2F7e5a5a967EA2DA8634",
   },
+  [MarketIds.PolygonV2]: {
+    addressesProvider: "0xd05e3E715d945B59290df0ae8eF85c1BdB684744",
+    pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+    poolConfigurator: "0x26db2B833021583566323E3b8985999981b9F1F3",
+    priceOracle: "0x0229F777B0fAb107F9591a41d5F02E4e98dB6f2d",
+    dataProvider: "0x7551b5D2763519d4e37e8B81929D336De671d46d",
+    permissionsManager: ZERO_ADDRESS,
+    uiPoolData: "0x67acdb3469580185811e5769113509c6e8b6cba5",
+  },
   [MarketIds.Arc]: {
     addressesProvider: "0x6FdfafB66d39cD72CFE7984D3Bbcc76632faAb00",
     pool: "0x37D7306019a38Af123e4b245Eb6C28AF552e0bB0",
@@ -89,6 +98,8 @@ export const getMarketConfig = (marketId: MarketIds): MarketAddresses => {
       return Markets[MarketIds.MainV2];
     case MarketIds.Arc:
       return Markets[MarketIds.Arc];
+    case MarketIds.PolygonV2:
+      return Markets[MarketIds.PolygonV2];
     default:
       throw `Missing market name ${marketId}. You must use one of the available markets: ${Object.values(
         MarketIds

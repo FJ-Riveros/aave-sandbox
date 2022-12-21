@@ -1,6 +1,7 @@
 export enum MarketIds {
   MainV2 = "main-v2",
   Arc = "arc",
+  PolygonV2 = "polygon-v2",
   PolygonV3 = "polygon-v3",
   FantomV3 = "fantom-v3",
   AvalancheV3 = "avalanche-v3",
