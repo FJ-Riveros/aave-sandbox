@@ -27,7 +27,7 @@
   },
   "scripts": {
     "compile": "SKIP_LOAD=true hardhat compile",
-    "node:eth:subtask": "env-cmd --use-shell \"hardhat node --fork https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY} --fork-block-number 13822673\"",
+    "node:eth:subtask": "env-cmd --use-shell \"hardhat node --fork https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_KEY} --fork-block-number 16325546\"",
     "node:eth": "npm run compile && env-cmd --use-shell \"npm run node:eth:subtask\"",
     "node": "npx hardhat node",
     "node:fork:arc": "MARKET=arc npm run node:eth",
@@ -40,6 +40,8 @@
     "node:fork:arbitrum-v3": "FORK=arbitrum MARKET=arbitrum-v3 npm run node",
     "node:fork:arbitrum-v3:replicable-liquidation": "FORK_BLOCK_NUMBER=20942256 FORK=arbitrum MARKET=arbritrum-v3 npm run node",
     "node:fork:arbitrum-v3:replicable-liquidation-curve": "FORK_BLOCK_NUMBER=44307026 FORK=arbitrum MARKET=arbritrum-v3 npm run node",
+    "node:main-v2": "FORK_BLOCK_NUMBER=16440710 FORK=main MARKET=main-v2 npm run node",
+    "node:main-v3": "npm run node",
     "node:fork:optimism-v3": "FORK=optimism MARKET=optimism-v3 npm run node",
     "node:fork:fantom-v3": "FORK=fantom MARKET=fantom-v3 npm run node",
     "node:fork:harmony-v3": "FORK=harmony MARKET=harmony-v3 npm run node",
